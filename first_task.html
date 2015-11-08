@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*The Fortune Teller*/
+    var n = prompt("Enter number of children:");
+    console.log(n);
+    var z = prompt("Enter partner's name:");
+    console.log(z);
+    var y = prompt("Enter geographic location:");
+    console.log(y);
+    var x = prompt("Enter job title:");
+    console.log(x);
+    alert("You will be a " + x + " in " + y + " and married to " + z + " with " + n + " kids.");
+
+    /*The Age Calculator*/
+    var a = 2015; /*current year*/
+    var b = prompt("Enter their birth year:");
+    console.log(b);
+    c = a - b -1;
+    e = a - b;
+    alert(" They are either " + c + "or" + e);
+
+    /*The Lifetime Supply Calculator*/
+    var myAge = 23;
+    var maxAge = 110;
+    var lunchHour = 1.5;
+    lifeDay = (maxAge - myAge) * 365;
+    totalLunchHours = lifeDay * 1.5;
+    alert("You will need " + totalLunchHours + " to last you until the ripe old age of " + maxAge );
+
+    /*The Geometrizer*/
+    var circleRadius = 3;
+    var circleCircumference;
+    var circleArea;
+    PI = 3.141592;
+    circleArea = PI * Math.pow(circleRadius,2);
+    circleCircumference = 2 * PI * circleRadius;
+    alert("The area is" + circleArea);
+    alert("The circumference is" + circleCircumference);
+
+    /*The Temperature Converter*/
+
+      var temperatureType = prompt("What temperature do you want to convert? (F/C)");
+      var finalTemperature;
+        if(temperatureType == "F") {
+            var fahrenheitTemperature = prompt("Please enter the temperature in Fahrenheit (°F).");
+            finalTemperature =  (fahrenheitTemperature - 32) / 1.8;
+            alert("Your temperature Celsius is " + finalTemperature + "°C.");
+        }
+        else if(temperatureType == "C") {
+            var celsiusTemperature = prompt("Please enter the temperature in Celsius (°C).");
+            finalTemperature = celsiusTemperature * 1.8 + 32;
+            alert("Your temperature Fahrenheit is " + finalTemperature + "°F.");
+        }
+        else {
+            alert("You write not correct value. Please try again.");
+        }
+
+
+
+</script>
+</body>
+</html>
