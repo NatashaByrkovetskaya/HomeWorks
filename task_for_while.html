@@ -21,38 +21,38 @@
 //    }
 //    alert("Your result is" + result);
 
-    var firstNum = prompt("Enter first number:");
-    var lastNum = prompt("Enter last number:");
-    var st = prompt("Enter step:");
-    var a;
-    var result = "";
-    for(a = parseInt(firstNum); a <= parseInt(lastNum); a = a + parseInt(st)){
-        console.log(a);
-        result = result + a;
-    }
-    alert("Your result is" + result + " ");
+//    var firstNum = prompt("Enter first number:");
+//    var lastNum = prompt("Enter last number:");
+//    var st = prompt("Enter step:");
+//    var a;
+//    var result = "";
+//    for(a = parseInt(firstNum); a <= parseInt(lastNum); a = a + parseInt(st)){
+//        console.log(a);
+//        result = result + a;
+//    }
+//    alert("Your result is" + result + " ");
 
     /*4. Вывести таблицу умножения числа 5*/
-    var firstOurNum = 5;
-    var lastOurNum = 50;
-    var r;
-    var ourResult = " ";
-    for(r = firstOurNum; r <= lastOurNum; r = r + 5) {
-        ourResult = ourResult + r + " ";
-    }
-    alert("Your result is:" + " " + ourResult);
+//    var firstOurNum = 5;
+//    var lastOurNum = 50;
+//    var r;
+//    var ourResult = " ";
+//    for(r = firstOurNum; r <= lastOurNum; r = r + 5) {
+//        ourResult = ourResult + r + " ";
+//    }
+//    alert("Your result is:" + " " + ourResult);
 
     /*Оператор while 1. Вывести таблицу умножения числа 5*/
-    var firstNumber = 5;
-    var lastNumber = 50;
-    var t;
-    var secondResult = "";
-    t = firstNumber;
-    while(t <= lastNumber) {
-        secondResult = secondResult + t + " ";
-        t = t + 5;
-    }
-    alert("Your result is: " + secondResult);
+//    var firstNumber = 5;
+//    var lastNumber = 50;
+//    var t;
+//    var secondResult = "";
+//    t = firstNumber;
+//    while(t <= lastNumber) {
+//        secondResult = secondResult + t + " ";
+//        t = t + 5;
+//    }
+//    alert("Your result is: " + secondResult);
 
     /*Оператор do...while
      1. Предложить пользователю указать свой возраст, причём
@@ -62,24 +62,24 @@
      если возраст меньше 25, то вывести сообщение "Вы молодой"
      если возраст меньше 65 – "Вы зрелый", иначе – "Вы мудрый"*/
 
-        do{
-            var age = prompt("How old are you?");
-            if(age < 5 || age > 100) {
-                prompt("This incorrect value. Please try again. How old are you?");
-            }
-        }while(age < 5 || age > 100);
-
-            if(age < 25){
-                    alert("Вы молодой");
-                    age++;
-               }
-            else if(age < 65){
-                alert("Вы зрелый");
-                age++;
-            }
-            else if(age > 65 && age <= 100){
-                alert("Вы мудрый");
-            }
+//        do{
+//            var age = prompt("How old are you?");
+//            if(age < 5 || age > 100) {
+//                prompt("This incorrect value. Please try again. How old are you?");
+//            }
+//        }while(age < 5 || age > 100);
+//
+//            if(age < 25){
+//                    alert("Вы молодой");
+//                    age++;
+//               }
+//            else if(age < 65){
+//                alert("Вы зрелый");
+//                age++;
+//            }
+//            else if(age > 65 && age <= 100){
+//                alert("Вы мудрый");
+//            }
 
     /*2. В небоскребе N этажей и всего один подъезд; на каждом этаже по
     3 квартиры; лифт может останавливаться только на нечетных этажах.
@@ -89,13 +89,17 @@
     var N = 100;
     var numF = 100 * 3;
     do{
-        var m = prompt("What number of your flat?");
-        var floor = Math.ceil(m / 3);
-        if(floor % 2 == 0){
-            prompt("Lift can't go to an even floor. Please try again.");
+        do{
+            var m = prompt("What number of your flat?");
+            var floor = Math.ceil(m / 3);
+            if(floor % 2 == 0){
+                prompt("Lift can't go to an even floor. Please try again.");
+            }
+        }while(floor % 2 == 0);
+        if(floor % 2 != 0) {
+            var choiсe = prompt("Желает ли продолжить проезд? yes/no");
         }
-    }while(floor % 2 == 0);
-
+        }while(choiсe == "yes");
 
 </script>
 </body>
