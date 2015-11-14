@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+        /*First part*/
+//        var mobilePhone = {
+//            dualeSim: true,
+//            flashMemory: true,
+//            active: false,
+//            turnOn: function(){
+//                this.active = true;
+//                console.log("You turn on your mobile phone.");
+//            },
+//            turnOff: function(){
+//                this.active = false;
+//                console.log("You turn off your mobile phone.");
+//            },
+//            oneSim: function(){
+//                this.dualeSim = false;
+//                console.log("Your mobile haven`t second sim card. Please insert second card.");
+//            },
+//            twoSim: function(){
+//                this.dualeSim = true;
+//                console.log("You have two sim card.");
+//            },
+//            enoughMemory: function(){
+//                if(this.active){
+//                    this.flashMemory = true;
+//                    console.log("You have enough memory.");
+//                }
+//                else{
+//                    this.flashMemory = true;
+//                    console.log("You haven`t memory.");
+//                }
+//            }
+//        };
+//            mobilePhone.turnOn();
+//            mobilePhone.turnOff();
+//            mobilePhone.oneSim();
+//            mobilePhone.twoSim();
+//            mobilePhone.enoughMemory();
+//            mobilePhone.turnOn();
+//            mobilePhone.enoughMemory();
+//            mobilePhone.turnOff();
+
+                /*Second part*/
+             /*C помощью функции settimeout реализовать аналог сигнализации
+            при открывании пользователем странички у него есть 10 секундный
+            интервал чтобы ввести код авторизации прежде чем сработает
+            сигнализация и вход будет запрещен*/
+
+
+        var doorOpen;
+        var doorKey;
+
+        function enter () {
+            doorKey = prompt("Do you want to enter? yes/no");
+            if (doorKey == "yes") {
+                doorOpen = true;
+            }
+            else {
+                doorOpen = false;
+            }
+            ourSignaling();
+            function ourSignaling() {
+                if (doorOpen == false) {
+                    alert("Everything is ok.");
+                    return;
+                }
+                else if (doorOpen == true) {
+                    alert("If you don`t input password during 10 second the signaling will be turned on.");
+                }
+                limTime();
+                var password;
+                function limTime(){
+                    password = prompt("Please enter password.");
+                    if(password == 221107){
+                        alert("Welcome!")
+                    }
+                    else{
+                        setTimeout(function(){alert("Police behind your back."); }, 10000);
+                    }
+                }
+            }
+        }
+        enter();
+
+    </script>
+</body>
+</html>
