@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            text-align: center
+        }
+        ul li{
+            border: 1px solid #4d9ce6;
+            display: inline-block;
+            list-style: none;
+            font-size: 1.2em;
+            font-family: arial, tahoma, sans-serif;
+            color: #98d0ff;
+        }
+        .active {
+            background-color: #5191ff;
+        }
+
+        button {
+            border: 1px solid #4d9ce6;
+            background-color: #e8e8e9;
+            color: #a8a8a9;
+        }
+        button:hover{
+            border: 1px solid #167ce6;
+            background-color: #f6f6f6;
+            color: #85c7e6;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+<button type="button" class="button">First Element</button>
+<button type="button" class="button">Last Element</button>
+<button type="button" class="button">Next Element</button>
+<button type="button" class="button">Previous Element</button>
+<button type="button" class="button">Add at the end</button>
+<button type="button" class="button">Add at the top</button>
+<button type="button" class="button">Replace current element</button>
+<button type="button" class="button">Delete current element</button>
+<ul class="List" id="list">
+    <li class="item" id="first">Text1</li>
+    <li class="item">Text2</li>
+    <li class="item">Text3</li>
+    <li class="item" id="last">Text4</li>
+</ul>
+<script>
+
+var currentElement;
+
+    function removeActive(){
+        var items = document.getElementsByClassName('item');
+        for (var i = 0; i < items.length; i++){
+            items[i].classList.remove('active');
+        }
+    }
+
+    var activeButton = document.getElementsByClassName('button');
+    activeButton[0].addEventListener('click',function (){
+        removeActive();
+        var firstElem = document.getElementById('list').firstElementChild;
+        firstElem.classList.add('active');
+    });
+
+    activeButton[1].addEventListener('click',function(){
+        removeActive();
+        var lastElement = document.getElementById('list').lastElementChild;
+            lastElement.classList.add('active');
+    });
+
+    activeButton[2].addEventListener('click',function(){
+        removeActive();
+        var nextElement = document.getElementById('first').nextElementSibling;
+            nextElement.classList.add('active');
+    });
+
+    activeButton[3].addEventListener('click',function(){
+        removeActive();
+        var previousElement = document.getElementById('last').previousElementSibling;
+            previousElement.classList.add('active');
+    });
+
+    activeButton[4].addEventListener('click',function(){
+        removeActive();
+        var newFirstLi = document.createElement('li');
+        newFirstLi.className = "item";
+        newFirstLi.innerHTML = "New text in the end";
+
+        list.appendChild(newFirstLi);
+    });
+
+    activeButton[5].addEventListener('click', function(){
+        var newSecondLi = document.createElement('li');
+        newSecondLi.className = "item";
+        newSecondLi.innerHTML = "New text at the beginning";
+
+        list.insertBefore(newSecondLi, list.firstChild);
+        currentElement = newSecondLi;
+    });
+
+    activeButton[6].addEventListener('click',function(){
+        var replaceCurrent = document.createElement('li');
+        replaceCurrent.className = "item";
+        replaceCurrent.innerHTML = "Replace current element";
+
+        list.replaceChild(replaceCurrent, currentElement);
+        currentElement = replaceCurrent;
+    });
+
+    activeButton[7].addEventListener('click',function(){
+        var deleteCurrent = document.createElement('li');
+        deleteCurrent.className = "item";
+        deleteCurrent.innerHTML = "delete current element";
+
+        list.removeChild(currentElement);
+    });
+</script>
+
+</body>
+</html>
