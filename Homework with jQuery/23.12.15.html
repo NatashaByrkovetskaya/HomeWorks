@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.11.3.min.js"></script>
+    <style>
+        body {
+            text-align: center
+        }
+        ul li{
+            border: 1px solid #4d9ce6;
+            display: inline-block;
+            list-style: none;
+            font-size: 1.2em;
+            font-family: arial, tahoma, sans-serif;
+            color: #98d0ff;
+            margin-right: 5px;
+        }
+        .active {
+            background-color: #5191ff;
+        }
+        button {
+            border: 1px solid #4d9ce6;
+            background-color: #9cd4e6;
+            color: #2626b2;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<button type="button" id="buttonFirst">First Element</button>
+<button type="button" id="buttonLast">Last Element</button>
+<button type="button" id="buttonNext">Next Element</button>
+<button type="button" id="buttonPrevious">Previous Element</button>
+<button type="button" id="buttonAddEnd">Add at the end</button>
+<button type="button" id="buttonAddTop">Add at the top</button>
+<button type="button" id="buttonReplace">Replace current element</button>
+<button type="button" id="buttonDelete">Delete current element</button>
+<ul class="List" id="list">
+    <li class="item">Text1</li>
+    <li class="item">Text2</li>
+    <li class="item">Text3</li>
+    <li class="item">Text4</li>
+</ul>
+<script>
+    $(document).ready(function(){
+        $('button').hover(function(){
+            $('button').not(this).stop().animate({opacity: "0.3"}, 200);
+        }, function(){
+            $('button').not(this).stop().animate({opacity: "1"}, 200);
+        });
+
+        var currentElement;
+        var list = $($("#list")[0]);
+
+        function removeActive() {
+            $(".item").removeClass("active");
+        }
+
+        function selectFirst(){
+            removeActive();
+            currentElement = list.children().first();
+            if(currentElement){
+                currentElement.addClass('active');
+            }
+        }
+
+        function selectLast(){
+            removeActive();
+            currentElement = list.children().last();
+            if(currentElement){
+                currentElement.addClass("active");
+            }
+        }
+
+        $("#buttonFirst").bind("click",selectFirst);
+
+        $("#buttonLast").bind("click",selectLast);
+
+
+        $("#buttonNext").bind("click",function(){
+            if(currentElement.next().length > 0){
+                var nextElem = currentElement.next();
+            } else{
+                nextElem = list.children().first();
+            }
+            removeActive ();
+            nextElem.addClass("active");
+            currentElement = nextElem;
+        });
+
+        $("#buttonPrevious").bind("click",function(){
+            if(currentElement.prev().length > 0){
+                var previousElem = currentElement.prev();
+            }else{
+                previousElem = list.children().last();
+            }
+            removeActive();
+            previousElem.addClass('active');
+            currentElement = previousElem;
+        });
+
+        $("#buttonAddEnd").click(function(){
+            removeActive();
+            list.append("<li class='item'>New text</li>");
+            selectLast();
+        });
+
+        $("#buttonAddTop").click(function(){
+            removeActive();
+            list.prepend("<li class='item'>New text</li>");
+            selectFirst();
+        });
+
+        $("#buttonReplace").click(function(){
+            removeActive();
+            var rElem = $("<li class='item active'>Replace element</li>");
+            currentElement.replaceWith(rElem);
+            currentElement = rElem;
+        });
+
+        $("#buttonDelete").click(function(){
+                currentElement.remove();
+                selectFirst();
+
+
+        });
+    });
+
+
+</script>
+
+</body>
+</html>
