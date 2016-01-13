@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" media="screen" href="main.css">
+</head>
+<body>
+    <form class="contact_form" action="" method="post" name="contact_form">
+    <ul>
+        <li>
+            <h2>Contact Us</h2>
+            <span class="required_notification">*Denotes Required Field</span>
+        </li>
+        <li>
+            <label for="name">Name:</label>
+            <input type="text" name id="name" placeholder="Nata Nata" required  />
+        </li>
+        <li>
+            <label for="date">Date of Birth</label>
+            <input type="date" name id="date" placeholder="16.08.1992" required />
+        </li>
+        <li>
+            <label for="email">Email:</label>
+            <input type="email" name id="email" placeholder="nata_nata@example.com"
+                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required />
+            <span class="form_hint">Proper format "name@something.com"</span>
+        </li>
+        <li>
+            <label for="telephone">Telephone:</label>
+            <input type="tel" name id="telephone" placeholder="+30931234567" required/>
+            <span class="form_hint">Proper format "+30931234567"</span>
+        </li>
+        <li>
+            <label for="website">Website:</label>
+            <input type="url" name id="website" placeholder="http://natanata.com/" required pattern="(http|https://.+)"/>
+            <span class="form_hint">Proper format "http://someaddress.com"</span>
+        </li>
+        <li>
+            <label for="password">Password:</label>
+            <input type="password" name id="password"  required pattern=".{6,}"/>
+            <span class="form_hint">Six or more characters</span>
+        </li>
+        <li>
+            <label for="country">Country:</label>
+            <input type="text" name id="country"/>
+        </li>
+        <li>
+            <label for="address">Address:</label>
+            <textarea id="address" cols="20" rows="3"></textarea>
+        </li>
+        <li>
+            <label for="post_code">Post code</label>
+            <input id="post_code"/>
+            <span class="form_hint">Proper format "22222"</span>
+
+        </li>
+        <li>
+            <label for="message">Message:</label>
+            <textarea id="message" cols="40" rows="6" required></textarea>
+        </li>
+        <li>
+            <label>Would you like to receive email about other programs?</label>
+            <select>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+
+        </li>
+        <li>
+            <button class="submit" type="submit">Submit Form</button>
+        </li>
+    </ul>
+    </form>
+</body>
+
+</html>
